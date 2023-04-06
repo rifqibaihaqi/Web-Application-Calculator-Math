@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Katik - Kalkulator Matematik</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/main.css">
+		<script type="text/javascript" src="js/jquery-1.2.3.min.js"></script>		
+		<script src="js/jquery-1.12.3.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+        <script src="js/index.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<div class="homepage">
+				<div class="text-center">
+					<h2>Welcome to Katik</h2>
+					<p>Hai Sobat, Selamat datang di Katik ;)
+					<br/>Sebuah web apps sederhana yang berfungsi untuk menghitung nilai luas dan keliling bangun datar</p>
+				</div>
+
+				<ul class="nav nav-pills nav-justified">
+					<li class="active"><a data-toggle="pill" href="#segitiga">Segitiga</a></li>
+					<li><a data-toggle="pill" href="#jajar-genjang">Jajar Genjang</a></li>
+				</ul>
+
+				<div class="tab-content">
+					<div id="segitiga" class="tab-pane fade in active">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="panel panel-default text-center">
+                                    <div class="panel-heading">
+                                        <h2>Luas Segitiga</h2>
+                                    </div>
+                                    <div class="panel-body">
+                                        <p><img src="/assets/images/rumus-segitiga.png" alt="Luas Segitiga"></p>
+                                        <p class="text-left">Rumus Luas Segitiga yaitu:</p>
+                                        <p><strong>L = 1/2 x a x t</strong></p>
+                                        <p class="text-left">Di mana:<br />L = Luas<br />a = Panjang Alas<br />t = Tinggi</p>
+                                    </div>
+                                    <div class="panel-footer">
+                                        <h3>Hitung Luas Segitiga</h3>
+                                        <form id="form-luas-segitiga"  action="perhitungan/luas-segitiga.php">
+                                            <input class="form-control" type="text" name="alas" id="alas-segitiga"  placeholder="Nilai Alas" required /><br/>
+                                            <input class="form-control" type="text" name="tinggi" id="tinggi-segitiga" placeholder="Nilai Tinggi" type="text" required />
+                                            <div class="hasil">
+                                                <p class="text-left"
+                                                id="luas-segitiga"></p>
+                                            </div>
+                                            <input type="button" onclick="LuasSegitiga()" class="btn btn-lg" value="Hitung"> </input>
+                                            <p class="text-right">
+                                                <input type="reset" class="btn btn-warning" value="Reset" onclick="ResetLuasSegitiga()"></input>
+                                            </p>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="panel panel-default text-center">
+                                    <div class="panel-heading">
+                                        <h2>Keliling Segitiga</h2>
+                                    </div>
+                                    <div class="panel-body">
+                                        <p><img src="/assets/images/rumus-segitiga.png" alt="Keliling Segitiga"></p>
+                                        <p class="text-left">Rumus Keliling Segitiga yaitu:</p>
+                                        <p><strong>K = S1 + S2 + S3</strong></p>
+                                        <p class="text-left">Di mana:<br />K = Keliling<br />S1 = Sisi a<br />S2 =  Sisi b<br />S3 = Sisi c</p>
+                                    </div>
+                                    <div class="panel-footer">
+                                        <h3>Hitung Keliling Segitiga</h3>
+                                        <form id="form-keliling-segitiga" action="perhitungan/keliling-segitiga.php">
+                                            <input class="form-control" id="sisi1" name="sisi1"  placeholder="Nilai Sisi a" type="text" required /><br />
+                                            <input class="form-control" id="sisi2" name="sisi2"  placeholder="Nilai Sisi b" type="text" required /><br />
+                                            <input class="form-control" id="sisi3" name="sisi3"  placeholder="Nilai Sisi c" type="text" required />
+                                            
+                                            <div class="hasil">
+                                                <p class="text-left"
+                                                id="keliling-segitiga"></p>
+                                            </div>
+                                            <input type="button" onclick="KelilingSegitiga()" class="btn btn-lg" value="Hitung"> </input>
+                                            <p class="text-right">
+                                                <input type="reset" class="btn btn-warning" value="Reset" onclick="ResetKelilingSegitiga()"></input>
+                                            </p>
+                                            
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+					</div>
+					<div id="jajar-genjang" class="tab-pane fade">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="panel panel-default text-center">
+                                    <div class="panel-heading">
+                                        <h2>Luas Jajar Genjang</h2>
+                                    </div>
+                                    <div class="panel-body">
+                                        <p><img src="/assets/images/rumus-jajar-genjang.png" alt="Luas Jajar Genjang"></p>
+                                        <p class="text-left">Rumus Luas Jajar Genjang yaitu:</p>
+                                        <p><strong>L = a x t</strong></p>
+                                        <p class="text-left">Di mana:<br />L = Luas<br />a = Alas<br />t = Tinggi</p>
+                                    </div>
+                                    <div class="panel-footer">
+                                        <h3>Hitung Luas Jajar Genjang</h3>
+                                        <form id="form-luas-jajargenjang" action="perhitungan/luas-jajargenjang.php">
+                                            <input class="form-control" id="alas-jajargenjang" name="alas"  placeholder="Nilai Alas" type="text" required /><br/>
+                                            
+                                            <input class="form-control" id="tinggi-jajargenjang" name="tinggi"  placeholder="Nilai Tinggi" type="text" required />
+                                            
+                                            <div class="hasil">
+                                                <p class="text-left"
+                                                id="luas-jajargenjang"></p>
+                                            </div>
+                                            <input type="button" onclick="Luasjajargenjang()" class="btn btn-lg" value="Hitung"> </input>
+                                            <p class="text-right">
+                                                <input type="reset" class="btn btn-warning" value="Reset" onclick="ResetLuasjajargenjang()"></input>
+                                            </p>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="panel panel-default text-center">
+                                    <div class="panel-heading">
+                                        <h2>Keliling Jajar Genjang</h2>
+                                    </div>
+                                    <div class="panel-body">
+                                        <p><img src="/assets/images/rumus-jajar-genjang.png" alt="Keliling Jajar Genjang"></p>
+                                        <p class="text-left">Rumus Keliling Jajar Genjang yaitu:</p>
+                                        <p><strong>K = 2 (a + b)</strong></p>
+                                        <p class="text-left">Di mana:<br />K = Keliling<br />a = Alas<br />b = Sisi Miring</p>
+                                    </div>
+                                    <div class="panel-footer">
+                                        <h3>Hitung Keliling Jajar Genjang</h3>
+                                        <form id="form-keliling-jajargenjang" action="perhitungan/keliling-jajargenjang.php">
+                                            <input class="form-control" id="alas-keliling-jajargenjang" name="nilaiLuasTriangle"  placeholder="Nilai Alas" type="text" required /><br />
+                                            
+                                            <input class="form-control" id="miring-keliling-jajargenjang" name="nilaiLuasTriangle"  placeholder="Nilai Sisi Miring" type="text" required />
+                                            
+                                            <div class="hasil">
+                                                <p class="text-left"
+                                                id="keliling-jajargenjang"></p>
+                                            </div>
+                                            <input type="button" onclick="Kelilingjajargenjang()" class="btn btn-lg" value="Hitung"> </input>
+                                            <p class="text-right">
+                                                <input type="reset" class="btn btn-warning" value="Reset" onclick="ResetKelilingjajargenjang()"></input>
+                                            </p>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+					</div>
+
+				</div>
+			</div>			
+		</div>
+		<footer class="text-center">
+			<p>Copyright 2023 <span class="glyphicon glyphicon-copyright-mark"></span> Katik All Rights Reserved<br />
+            Made with <span class="glyphicon glyphicon-heart"></span> <a href="" re="nofollow" target="_blank">Love</a></p>
+		</footer>
+	</body>
+</html>
